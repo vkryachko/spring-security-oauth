@@ -92,7 +92,7 @@ public class AuthorizationEndpoint extends AbstractEndpoint implements Initializ
 
 	@RequestMapping(params = "response_type")
 	public ModelAndView authorize(Map<String, Object> model, @RequestParam("response_type") String responseType,
-			Map<String, String> parameters, SessionStatus sessionStatus, Principal principal) {
+			@RequestParam Map<String, String> parameters, SessionStatus sessionStatus, Principal principal) {
 
 		// Manually initialize auth request instead of using @ModelAttribute on getClientToken,
 		// to make sure it comes from getClientToken instead of the session
