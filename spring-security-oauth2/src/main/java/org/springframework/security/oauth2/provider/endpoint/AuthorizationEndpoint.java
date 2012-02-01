@@ -85,12 +85,12 @@ public class AuthorizationEndpoint extends AbstractEndpoint implements Initializ
 	}
 
 	// @ModelAttribute
-	public AuthorizationRequest getClientToken(@RequestParam Map<String, String> parameters) {
+	public AuthorizationRequest getClientToken(Map<String, String> parameters) {
 		AuthorizationRequest authorizationRequest = new AuthorizationRequest(parameters);
 		return authorizationRequest;
 	}
 
-	@RequestMapping(params = "response_type")
+	@RequestMapping(params = "response_type", method = RequestMethod.GET)
 	public ModelAndView authorize(Map<String, Object> model, @RequestParam("response_type") String responseType,
 			@RequestParam Map<String, String> parameters, SessionStatus sessionStatus, Principal principal) {
 
